@@ -26,3 +26,13 @@
 *.exe
 *.out
 *.app
+
+# IDE Help Object
+*.tlog
+*.lastbuildstate
+*.pdb
+*.log
+*.ilk
+*.sdf
+*.ipch
+*.idb
