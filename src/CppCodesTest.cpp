@@ -231,7 +231,7 @@ namespace SizeOfTest
 
     size_t foo2(char t[])
     {
-        return sizeof(t);
+        return sizeof(static_cast<char*>(t));
     }
 
     class SizeOfTest : public Common::Test
@@ -244,13 +244,13 @@ namespace SizeOfTest
             size_t xxx = foo1(x); // xxx == 8 or 4
             size_t xxxx = foo2(x); // xxxx == 8 or 4
             delete[] x;
-            std::cout << xx << xxx << std::endl;
+            std::cout << xx << xxx << xxxx << std::endl;
 
             char y[100];
             size_t yy = sizeof(y); // yy == 100
             size_t yyy = foo1(y); // yyy == 8 or 4
             size_t yyyy = foo2(y); // yyyy == 8 or 4
-            std::cout << yy << yyy << std::endl;
+            std::cout << yy << yyy << yyyy << std::endl;
 
             return true;
         }
@@ -267,7 +267,7 @@ int main(int argc, const char * argv[])
 
     FunctionBindTest::FunctionBindTest fbt;
     fbt.Execute();
-
+    
     // 注意, 返回0表示成功运行, 否则返回非0都是会对应错误的
     return 0;
 }
