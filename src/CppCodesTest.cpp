@@ -1,10 +1,16 @@
 ﻿// CppCodesTest.cpp : Defines the entry point for the console application.
 //
 
+#define _CRT_SECURE_NO_WARNINGS
+#include <time.h>
+#include <atltime.h>
+
 #include <functional>
 #include <iostream>
 #include <queue>
 #include <vector>
+
+
 
 namespace Common {
     class Test {
@@ -257,6 +263,97 @@ namespace SizeOfTest
     };
 }
 
+namespace ReadViolationTest
+{
+    class ReadViolationTest : public Common::Test
+    {
+    protected:
+        virtual bool run()
+        {
+            const int NvGenericStringBufferMax = 4096;
+            typedef char NvTk_String_t[NvGenericStringBufferMax];
+            NvTk_String_t szFileDateTime;
+            struct _stat buf;
+            buf.st_mtime = -196296254;
+
+#define ERROR_NOT_HAPPEN 0
+            strcpy(szFileDateTime, "test"); // only for remve the compiler warning
+
+#define ERROR_JUST_HAPPEN 1
+
+#if ERROR_NOT_HAPPEN
+            // 因为st_mtime为负数, 那么fileTime.Format会检查其值, 然后直接抛出异常
+            CTime fileTime(buf.st_mtime);
+            CString s = fileTime.Format(L"%Y/%m/%d %H:%M:%S");
+#endif
+
+#if ERROR_NOT_HAPPEN
+            // 因为st_mtime为负数, 那么ctime()会直接返回NULL [在ctime调用的过程中, 会使用_VALIDATE_RETURN_NOEXC()宏(internal.h)检查其值非负, 否则返回NULL], 然后strcpy抛出read violation 0x00的错误
+            strcpy(szFileDateTime, ctime(&buf.st_mtime));
+#endif
+            return true;
+        }
+    };
+}
+
+namespace MemoryConsumeBigTest
+{
+    class MemoryConsumeBigTest : public Common::Test
+    {
+    protected:
+        virtual bool run()
+        {
+            // Test for LargAddressAware
+            const unsigned int array_size = 1024 * 4; // total memory cost: array_size * item_size
+            const unsigned int item_size = 1024 * 1024;
+
+            char* t[array_size];
+
+            // draw a sin wave like memory cost diagram in taskmgr
+            for (unsigned int i = 0; i < array_size; i++)
+            {
+                t[i] = new char[item_size]; // each item has 1Mb memory
+                for (size_t j = 0; j < item_size; j++)
+                {
+                    const char v = 'a';
+                    memcpy(t[i] + j, &v, 1);
+                }
+            }
+            for (unsigned int i = 0; i < array_size; i++)
+            {
+                for (unsigned int j = 0; j < item_size; j++)
+                {
+                    const char v = 'b';
+                    memcpy(t[i] + j, &v, 1);
+                }
+                delete[] t[i];
+            }
+
+            for (unsigned int i = 0; i < array_size; i++)
+            {
+                t[i] = new char[item_size]; // each item has 1Mb memory
+                for (size_t j = 0; j < item_size; j++)
+                {
+                    const char v = 'a';
+                    memcpy(t[i] + j, &v, 1);
+                }
+            }
+            for (unsigned int i = 0; i < array_size; i++)
+            {
+                for (unsigned int j = 0; j < item_size; j++)
+                {
+                    const char v = 'b';
+                    memcpy(t[i] + j, &v, 1);
+                }
+                delete[] t[i];
+            }
+
+            getchar();
+            return true;
+        }
+    };
+}
+
 int main(int argc, const char * argv[])
 {
     SizeOfTest::SizeOfTest sot;
@@ -267,7 +364,13 @@ int main(int argc, const char * argv[])
 
     FunctionBindTest::FunctionBindTest fbt;
     fbt.Execute();
-    
+
+    ReadViolationTest::ReadViolationTest rvt;
+    rvt.Execute();
+
+    MemoryConsumeBigTest::MemoryConsumeBigTest mcbt;
+    mcbt.Execute();
+
     // 注意, 返回0表示成功运行, 否则返回非0都是会对应错误的
     return 0;
 }
