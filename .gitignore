@@ -36,3 +36,5 @@
 *.sdf
 *.ipch
 *.idb
+*.user
+*.suo
