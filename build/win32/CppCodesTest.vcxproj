@@ -144,6 +144,12 @@
     <Text Include="ReadMe.txt" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="..\..\src\Common.h" />
+    <ClInclude Include="..\..\src\FunctionBindTest.h" />
+    <ClInclude Include="..\..\src\MemoryConsumeBigTest.h" />
+    <ClInclude Include="..\..\src\PriorityQueueTest.h" />
+    <ClInclude Include="..\..\src\ReadViolationTest.h" />
+    <ClInclude Include="..\..\src\SizeOfTest.h" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="targetver.h" />
   </ItemGroup>
