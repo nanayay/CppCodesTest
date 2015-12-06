@@ -29,6 +29,7 @@
 		85A0CBA41C147CB500FDFB0C /* PriorityQueueTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PriorityQueueTest.h; path = ../../src/PriorityQueueTest.h; sourceTree = "<group>"; };
 		85A0CBA51C147CB500FDFB0C /* ReadViolationTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ReadViolationTest.h; path = ../../src/ReadViolationTest.h; sourceTree = "<group>"; };
 		85A0CBA61C147CB500FDFB0C /* SizeOfTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SizeOfTest.h; path = ../../src/SizeOfTest.h; sourceTree = "<group>"; };
+		85A0CBA71C14858800FDFB0C /* FileOperatorTest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = FileOperatorTest.h; path = ../../src/FileOperatorTest.h; sourceTree = "<group>"; };
 		C93FF90F1AC5A44A005AAF86 /* CppCodesTest.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = CppCodesTest.cpp; path = ../../src/CppCodesTest.cpp; sourceTree = "<group>"; };
 		C984AC591AC5A2EA002E151A /* CppCodesTest */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = CppCodesTest; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -47,6 +48,7 @@
 		C984AC501AC5A2EA002E151A = {
 			isa = PBXGroup;
 			children = (
+				85A0CBA71C14858800FDFB0C /* FileOperatorTest.h */,
 				85A0CBA11C147CB500FDFB0C /* Common.h */,
 				85A0CBA21C147CB500FDFB0C /* FunctionBindTest.h */,
 				85A0CBA31C147CB500FDFB0C /* MemoryConsumeBigTest.h */,

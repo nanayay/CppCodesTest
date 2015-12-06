@@ -7,6 +7,7 @@
 #include "ReadViolationTest.h"
 #include "MemoryConsumeBigTest.h"
 #include "SizeOfTest.h"
+#include "FileOperatorTest.h"
 
 #define RUN_TEST(_Test) _Test##Test::_Test##Test _Test##Tester;\
                         _Test##Tester.Execute();
@@ -22,6 +23,8 @@ int main(int argc, const char * argv[])
     RUN_TEST(ReadViolation);
 
     RUN_TEST(MemoryConsumeBig);
+    
+    RUN_TEST(FileOperator);
 
     // 注意, 返回0表示成功运行, 否则返回非0都是会对应错误的
     return 0;
