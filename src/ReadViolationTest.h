@@ -4,6 +4,11 @@
 #include <cstring>
 #include <time.h>
 
+#if defined(_WIN32) || defined(_WIN64)
+#incluce <sys/types.h>
+#include <sys/stat.h>
+#endif
+
 namespace ReadViolationTest
 {
     class ReadViolationTest : public Common::Test
@@ -11,6 +16,7 @@ namespace ReadViolationTest
     protected:
         virtual bool run()
         {
+#if defined(_WIN32) || defined(_WIN64)
             const int NvGenericStringBufferMax = 4096;
             typedef char NvTk_String_t[NvGenericStringBufferMax];
             NvTk_String_t szFileDateTime;
@@ -31,6 +37,7 @@ namespace ReadViolationTest
 #if ERROR_NOT_HAPPEN
             // ??st_mtime???, ??ctime()?????NULL [?ctime??????, ???_VALIDATE_RETURN_NOEXC()?(internal.h)??????, ????NULL], ??strcpy??read violation 0x00???
             strcpy(szFileDateTime, ctime(&buf.st_mtime));
+#endif
 #endif
             return true;
         }
