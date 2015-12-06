@@ -23,6 +23,12 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		85A0CBA11C147CB500FDFB0C /* Common.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Common.h; path = ../../src/Common.h; sourceTree = "<group>"; };
+		85A0CBA21C147CB500FDFB0C /* FunctionBindTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FunctionBindTest.h; path = ../../src/FunctionBindTest.h; sourceTree = "<group>"; };
+		85A0CBA31C147CB500FDFB0C /* MemoryConsumeBigTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MemoryConsumeBigTest.h; path = ../../src/MemoryConsumeBigTest.h; sourceTree = "<group>"; };
+		85A0CBA41C147CB500FDFB0C /* PriorityQueueTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PriorityQueueTest.h; path = ../../src/PriorityQueueTest.h; sourceTree = "<group>"; };
+		85A0CBA51C147CB500FDFB0C /* ReadViolationTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ReadViolationTest.h; path = ../../src/ReadViolationTest.h; sourceTree = "<group>"; };
+		85A0CBA61C147CB500FDFB0C /* SizeOfTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SizeOfTest.h; path = ../../src/SizeOfTest.h; sourceTree = "<group>"; };
 		C93FF90F1AC5A44A005AAF86 /* CppCodesTest.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = CppCodesTest.cpp; path = ../../src/CppCodesTest.cpp; sourceTree = "<group>"; };
 		C984AC591AC5A2EA002E151A /* CppCodesTest */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = CppCodesTest; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -41,6 +47,12 @@
 		C984AC501AC5A2EA002E151A = {
 			isa = PBXGroup;
 			children = (
+				85A0CBA11C147CB500FDFB0C /* Common.h */,
+				85A0CBA21C147CB500FDFB0C /* FunctionBindTest.h */,
+				85A0CBA31C147CB500FDFB0C /* MemoryConsumeBigTest.h */,
+				85A0CBA41C147CB500FDFB0C /* PriorityQueueTest.h */,
+				85A0CBA51C147CB500FDFB0C /* ReadViolationTest.h */,
+				85A0CBA61C147CB500FDFB0C /* SizeOfTest.h */,
 				C93FF90F1AC5A44A005AAF86 /* CppCodesTest.cpp */,
 				C984AC5A1AC5A2EA002E151A /* Products */,
 			);
@@ -80,7 +92,7 @@
 		C984AC511AC5A2EA002E151A /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0620;
+				LastUpgradeCheck = 0710;
 				ORGANIZATIONNAME = nanayay;
 				TargetAttributes = {
 					C984AC581AC5A2EA002E151A = {
@@ -136,6 +148,7 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
