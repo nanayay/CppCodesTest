@@ -14,6 +14,8 @@
 
 int main(int argc, const char * argv[])
 {
+    RUN_TEST(FileOperator);
+
     RUN_TEST(SizeOf);
 
     RUN_TEST(PriorityQueue);
@@ -24,8 +26,6 @@ int main(int argc, const char * argv[])
 
     RUN_TEST(MemoryConsumeBig);
     
-    RUN_TEST(FileOperator);
-
     // 注意, 返回0表示成功运行, 否则返回非0都是会对应错误的
     return 0;
 }
