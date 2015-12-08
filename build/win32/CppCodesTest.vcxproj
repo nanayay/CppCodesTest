@@ -145,6 +145,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\src\Common.h" />
+    <ClInclude Include="..\..\src\FileOperatorTest.h" />
     <ClInclude Include="..\..\src\FunctionBindTest.h" />
     <ClInclude Include="..\..\src\MemoryConsumeBigTest.h" />
     <ClInclude Include="..\..\src\PriorityQueueTest.h" />
