@@ -22,14 +22,13 @@ namespace FileOperatorTest {
             std::string filename("test.txt");
             
             std::ofstream ofs;
-            ofs.open(filename);
-            
+            ofs.open(filename, ofs.binary);
             
             ofs.write(reinterpret_cast<char*>(p), l);
             ofs.close();
 
             std::ifstream ifs;
-            ifs.open(filename);
+            ifs.open(filename, ifs.binary);
             if (!ifs) {
                 std::cout << "file: " << filename << " open failed" << std::endl;
                 return false;
@@ -46,8 +45,8 @@ namespace FileOperatorTest {
             uint8_t* dt = nullptr;
             dt = dp;
             
-            while (ifs.read(reinterpret_cast<char*>(dp+ifs.gcount()/sizeof(dp[0])), 512)) {
-                // todo, bug mind, just make it happen
+            while (ifs.read(reinterpret_cast<char*>(dt), 512)) {
+                dt += ifs.gcount() / sizeof(dp[0]);
             }
             
             if (l!=dl) {
