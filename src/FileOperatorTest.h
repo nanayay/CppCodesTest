@@ -5,6 +5,7 @@
 #include <iostream>
 #include <cstring>
 #include <string>
+#include <cstdint>
 
 namespace FileOperatorTest {
     class FileOperatorTest : public Common::Test
