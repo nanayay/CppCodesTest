@@ -39,3 +39,4 @@
 *.user
 *.suo
 *.opensdf
+/build/win32/test.txt
