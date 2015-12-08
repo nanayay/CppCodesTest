@@ -11,7 +11,7 @@ namespace MemoryConsumeBigTest
         virtual bool run()
         {
             // Test for LargAddressAware
-            const unsigned int array_size = 1024 * 2; // total memory cost: array_size * item_size
+            const unsigned int array_size = 1024 * 1; // total memory cost: array_size * item_size
             const unsigned int item_size = 1024 * 1024;
 
             char* t[array_size];
@@ -55,7 +55,6 @@ namespace MemoryConsumeBigTest
                 delete[] t[i];
             }
 
-            getchar();
             return true;
         }
     };
