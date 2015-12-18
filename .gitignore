@@ -40,3 +40,5 @@
 *.suo
 *.opensdf
 /build/win32/test.txt
+build/osx/CppCodesTest.xcodeproj/project.xcworkspace
+build/osx/CppCodesTest.xcodeproj/xcuserdata
