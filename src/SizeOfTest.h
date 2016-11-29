@@ -15,6 +15,11 @@ namespace SizeOfTest
         return sizeof(static_cast<char*>(t));
     }
 
+    int foo3(char* a)
+    {
+        return sizeof(a);
+    }
+
     class SizeOfTest : public Common::Test
     {
     protected:
@@ -32,6 +37,20 @@ namespace SizeOfTest
             size_t yyy = foo1(y); // yyy == 8 or 4
             size_t yyyy = foo2(y); // yyyy == 8 or 4
             std::cout << yy << yyy << yyyy << std::endl;
+
+            struct MyStructTest
+            {
+                char aa;
+                float a[1];
+                int b[5];
+            };
+
+            MyStructTest TSa;
+            std::cout << sizeof(TSa) << std::endl;
+
+            char TPa[] = "abcde";
+            std::cout << sizeof(TPa) << std::endl;
+            std::cout << foo3(TPa) << std::endl;
 
             return true;
         }
